@@ -1,0 +1,8 @@
+com\example\testapi\model\Kriterien.class
+com\example\testapi\TestapiApplication.class
+com\example\testapi\controller\EintragController.class
+com\example\testapi\repository\EintragRepository.class
+com\example\testapi\repository\EintragRepositoryCustom.class
+com\example\testapi\repository\EintragRepositoryCustomImpl.class
+com\example\testapi\service\EintragService.class
+com\example\testapi\model\Eintrag.class
