@@ -1,27 +1,16 @@
-# mf_BA
-muenster.fair BA
-
 # Installation
-Für die Installation wird node benötigt.  
 
-Expo Installation:  
+Folgende Programme müssen vor der Nutzung der App installiert werden: MySQL Workbench, Java Development Kit 16, Apache Maven, Node. Außerdem muss Expo installiert sein. Über 'npm install -g expo-cli' wird expo global installiert.
+Zuerst sollte die lokale Datenbank eingerichtet werden. Dazu wird MySQL-Workbench geöffnet und eine lokale Instanz angelegt. Nutzer und Passwort können dabei selsbt gewählt werden (in der Server-App ist User:root und passwort: rootmffair). Die lokale Instanz kann dann ausgewählt werden und über den Punkt "File"-> "open SQL-Script" kann die 'database.sql'-Datei eingelesen werden. Diese kann nun über den "Blitz" ausgeführt werden, sodass die gesamte Datenbankstruktur generiert wird. Zur Veranschaulichung der App-Funktionalität, wurden bereits einige Einträge erzeugt. 
 
-Im Command Line Interface:'npm install -g expo-cli'  
-zum Überprüfen kann  'expo whoami'  aufgerufen werden; es sollte "you're not logged in ... " erscheinen   
-Anschließend auf mf-App Pfad wechseln und 'npm install' eingeben und nach Abschluss  'expo install' laufen lassen  
-Expo wurde nun richtig installiert und alle Abhängigkeiten des Projekts sollten berücksichtigt werden. 'expo start' startet nun den Metro-Bundler und es wird ein QR-Scode angezeigt, der mit der Expo Go App engescannt werden kann (iOS muss auch Expo Go App installieren, muss aber mit der Kamera-App den QR-Code scannen).
+Falls der gewählte Name oder das Passwort von root/rootmffair abweichen sollte, müssen Änderungen im 'testapi'-Ordner vorgenommen werden. Dazu empfiehlt es sich IntelliJ oder eine ähnliche Java-IDE zu verwenden. In src->main->ressources->application.properties ist der Verweis auf die Datenbank und dort können die Änderungen getroffen werden. Bevor die Server-App gestartet wird, muss zunächst über die Eingabeaufforderung der Pfad des 'testapi'-Ordners aufgerufen und 'mvn install' eingegeben werden. Wenn dieser Prozess abgeschlossen ist, kann 'mvn spring-boot:run' eingegeben werden, um die Server-App zu starten.
 
-Im Command-Line-Interface zum mf-App-Ordner navigieren und 'expo install' laufen lassen um alle Dependencies korrekt zu installieren  
+Abschließend muss noch die React-Native/Expo Struktur mit Expo abgerufen werden. Dazu wird in den mf-app-neu Ordner in der Eingabeaufforderung navigiert und zunächst 'npm install' aufgerufen. Nach Abschluss muss noch 'expo install' durchlaufen. Danach sollten alle Vorkehrungen getroffen sein und die App über 'expo start' gestartet werden können. 
 
-über 'expo start' wird der Metro-Bundler-Server gestartet und es wird ein QR-Code angezeigt, den man mit der Expo Go App (erhältlich im Google Play Store und iOS App Store) einscannen kann.
+Nach 'expo start' sollte sich nach kurzer Zeit ein Browser-Fenster mit einem QR-Code geöffnet haben, der dann über die Expo Go App eingescannt werden kann (auf iOS muss App heruntergeladen sein; der Code muss allerdings über die normale Kamera-App gescannt werden). Es sollte ein Ladebalken auf dem Smartphone angezeigt werden, der Auskunft über den Fortschritt des Downloads gibt.
 
-mySQL-Datenbank  
+Diese Schritte müssen nicht jesdes mal wiederholt werden. Wurde die App bereits erfolgreich gestartet, reicht es 'mvn spring-boot:run' und 'expo start' in den respektiven Ordnern auszuführen.
 
-
-
-spring boot App starten:  
-(hierfür muss Java 11 installiert sein)  
-
-im CLI zum testapi-Ordner navigieren und 'mvn install' eingeben  
-nach Abschluss kann 'mvn spring-boot:run' eingeben werden und die App startet  
+Während der Entwicklung der App kam es vor, dass die App Expo-Go nicht mehr vernünftig funktionierte und auch kein Reload half. Ein Zurücksetzten des Speicherinhalts der App sorgte dann wieder für ein erwartetes Verhalten der App.
+ 
 
