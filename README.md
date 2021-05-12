@@ -2,9 +2,10 @@
 muenster.fair BA
 
 # Installation
-Für die Installation wird node benötigt.
+Für die Installation wird node benötigt.  
 
-# Expo Installation
+Expo Installation:  
+
 Im Command Line Interface:'npm install -g expo-cli' und anschließend 'npm install'
 
 Im Command-Line-Interface zum mf-App-Ordner navigieren und 'expo install' laufen lassen um alle Dependencies korrekt zu installieren  
