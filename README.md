@@ -1,6 +1,7 @@
 # Installation
 
 Folgende Programme müssen vor der Nutzung der App installiert werden: MySQL Workbench, Java Development Kit 16, Apache Maven, Node. Außerdem muss Expo installiert sein. Über 'npm install -g expo-cli' wird expo global installiert.
+
 Zuerst sollte die lokale Datenbank eingerichtet werden. Dazu wird MySQL-Workbench geöffnet und eine lokale Instanz angelegt. Nutzer und Passwort können dabei selsbt gewählt werden (in der Server-App ist User:root und passwort: rootmffair). Die lokale Instanz kann dann ausgewählt werden und über den Punkt "File"-> "open SQL-Script" kann die 'database.sql'-Datei eingelesen werden. Diese kann nun über den "Blitz" ausgeführt werden, sodass die gesamte Datenbankstruktur generiert wird. Zur Veranschaulichung der App-Funktionalität, wurden bereits einige Einträge erzeugt. 
 
 Falls der gewählte Name oder das Passwort von root/rootmffair abweichen sollte, müssen Änderungen im 'testapi'-Ordner vorgenommen werden. Dazu empfiehlt es sich IntelliJ oder eine ähnliche Java-IDE zu verwenden. In src->main->ressources->application.properties ist der Verweis auf die Datenbank und dort können die Änderungen getroffen werden. Bevor die Server-App gestartet wird, muss zunächst über die Eingabeaufforderung der Pfad des 'testapi'-Ordners aufgerufen und 'mvn install' eingegeben werden. Wenn dieser Prozess abgeschlossen ist, kann 'mvn spring-boot:run' eingegeben werden, um die Server-App zu starten.
