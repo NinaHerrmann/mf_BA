@@ -36,7 +36,7 @@ function Favoriten({navigation}:SubHomeScreenProps) {
 
     // useEffect wird beim Erstaufruf der Komponente aufgerufen und ...
     useEffect(()=>{
-      fetch(`http://192.168.0.88:8080/eintraege/idliste/${ApiSuchString}`)
+      fetch(`http://10.0.2.2:8080/eintraege/idliste/${ApiSuchString}`)
         .then((response) => response.json())
         .then((json) => setData(json))
         .catch((error) => console.error(error))

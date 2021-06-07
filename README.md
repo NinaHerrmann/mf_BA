@@ -1,17 +1,35 @@
-# Installation
+# Prototype MS Fair App
 
-Folgende Programme müssen vor der Nutzung der App installiert werden: MySQL Workbench, Java Development Kit 16, Apache Maven, Node. Außerdem muss Expo installiert sein. Über 'npm install -g expo-cli' wird expo global installiert.
+## Requirements
+- [ ] Mysql (workbench - depending on how used you are to cmd ;))
+- [ ] JDK (tested 16.0.1)
+- [ ] Maven (recommended 3.8.1 - not working for 3.6.x)
+- [ ] Node + Expo (tested v14.15.4, 4.4.9)
 
-Zuerst sollte die lokale Datenbank eingerichtet werden. Dazu wird die MySQL-Workbench geöffnet und eine lokale Instanz angelegt. Nutzer und Passwort können dabei selbst gewählt werden (in der Server-App ist User:root und passwort: rootmffair). Die lokale Instanz kann dann ausgewählt werden und über den Punkt "File"-> "open SQL-Script" kann die 'database.sql'-Datei eingelesen werden. Diese kann nun über den "Blitz" ausgeführt werden, sodass die gesamte Datenbankstruktur generiert wird. Zur Veranschaulichung der App-Funktionalität wurden bereits einige Einträge erzeugt. 
+## Limitations
+- [ ] Expo Go for iOS requires to use your local IP-Adress
+- [ ] Web Browser simulation is not possible as `react-native-maps` is not available for web
+- [ ] simulating on a hardware device requires to have the device in the same network as the laptop/desktop
+- [ ] simulating on Android will require you to have some (sometimes not to small) android emulator (e.g. [Android Studio](https://docs.expo.io/workflow/android-studio-emulator/) for the maybe biggest but up to date possibility)
 
-Falls der gewählte Name oder das Passwort von root/rootmffair abweichen sollte, müssen Änderungen im 'testapi'-Ordner vorgenommen werden. Dazu empfiehlt es sich, IntelliJ oder eine ähnliche Java-IDE zu verwenden. In src-> main-> ressources-> application.properties ist der Verweis auf die Datenbank und dort können die Änderungen getroffen werden. Bevor die Server-App gestartet wird, muss zunächst über die Eingabeaufforderung der Pfad des 'testapi'-Ordners aufgerufen und 'mvn install' eingegeben werden. Wenn dieser Prozess abgeschlossen ist, kann 'mvn spring-boot:run' eingegeben werden, um die Server-App zu starten.
+## Set-up
+- [ ] open MySQL (workbench, or terminal) and use the `Datenbank\createDatabase.sql` file to create a examplarly database with entries. 
+        (In case of workbench `File->open SQL-Script`)
+- [ ] adjust DB-Owner and Password in `BackEnd\ServerApp\src\main\ressources\application.properties` to your settings
+- [ ] run `mvn install` inside `BackEnd\ServerApp`
+- [ ] run `npm install` inside `Front-End\mf-App-neu`
+- [ ] run `expo install` inside `Front-End\mf-App-neu`
+- [ ] OPTIONAL: all URLs are set to use `10.0.2.2` (Android Emulator)
+if you want to have the app running on iOS you will need to 
+change that to your local IP-adress (or the adress the backend is running on).
 
-Abschließend muss noch die React-Native/Expo Struktur mit Expo abgerufen werden. Dazu wird in den mf-app-neu Ordner in der Eingabeaufforderung navigiert und zunächst 'npm install' aufgerufen. Nach Abschluss muss noch 'expo install' durchlaufen. Danach sollten alle Vorkehrungen getroffen sein und die App über 'expo start' gestartet werden können. 
+## Starting the Prototype
+- [ ] call `mvn spring-boot:run` inside `BackEnd\ServerApp`
+- [ ] call `expo start` inside `Front-End\mf-App-neu`
 
-Nach 'expo start' sollte sich nach kurzer Zeit ein Browser-Fenster mit einem QR-Code geöffnet haben, der dann über die Expo Go App eingescannt werden kann (auf iOS muss die App heruntergeladen sein; der Code muss allerdings über die normale Kamera-App gescannt werden). Es sollte ein Ladebalken auf dem Smartphone angezeigt werden, der Auskunft über den Fortschritt des Downloads gibt.
-
-Diese Schritte müssen nicht jedes mal wiederholt werden. Wurde die App bereits erfolgreich gestartet, reicht es, 'mvn spring-boot:run' und 'expo start' in den respektiven Ordnern auszuführen.
-
-Während der Entwicklung der App kam es vor, dass die App Expo-Go nicht mehr vernünftig funktionierte und auch kein Reload half. Ein Zurücksetzten des Speicherinhalts der App sorgte dann wieder für ein ordnungsgemäßes Verhalten der App.
- 
+## Debugging
+- [ ] reload expo go as it sometimes not refreshes completly
+- [ ] call `[whatyouexpecttobeyourbackendurl]:8080/eintraege/alle` to see if the Backend sends data.
+(Android Emulator (10.0.2.2) --> `localhost:8080/eintraege/alle` 
+iOS Device --> `[youripadress]:8080/eintraege/alle`)
 

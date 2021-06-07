@@ -89,7 +89,7 @@ function Map({navigation}:SubHomeScreenProps){
 
   // Abfrage der API
   React.useEffect(()=>{
-    fetch(`http://192.168.0.88:8080/eintraege/${str}`)
+    fetch(`http://10.0.2.2:8080/eintraege/${str}`)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

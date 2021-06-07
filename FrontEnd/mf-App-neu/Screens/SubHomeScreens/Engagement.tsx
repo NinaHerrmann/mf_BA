@@ -13,7 +13,7 @@ function Engagement({navigation}:SubHomeScreenProps) {
 
 // use Effect (Hook) wird beim erstmaligen Laden der Seite aufgerufen
   useEffect(()=>{
-    fetch(`http://192.168.0.88:8080/eintraege/kategorien/engagement`)
+    fetch(`http://10.0.2.2:8080/eintraege/kategorien/engagement`)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

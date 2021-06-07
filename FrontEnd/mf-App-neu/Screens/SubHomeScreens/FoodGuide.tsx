@@ -13,7 +13,7 @@ function FoodGuide({navigation}:SubHomeScreenProps) {
 
 
   useEffect(()=>{
-    fetch(`http://192.168.0.88:8080/eintraege/kategorien/cafe,restaurant`)
+    fetch(`http://10.0.2.2:8080/eintraege/kategorien/cafe,restaurant`)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))

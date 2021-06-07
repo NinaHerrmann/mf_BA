@@ -13,7 +13,7 @@ function Events({navigation}:SubHomeScreenProps) {
 
 
   useEffect(()=>{
-    fetch(`http://192.168.0.88:8080/eintraege/kategorien/events`)
+    fetch(`http://10.0.2.2:8080/eintraege/kategorien/events`)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
